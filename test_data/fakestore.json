@@ -1,0 +1,156 @@
+{
+  "paths": {
+    "carts": "/carts",
+    "cart_item": "/carts/{id}",
+    "products": "/products",
+    "product_item": "/products/{id}",
+    "product_categories": "/products/categories",
+    "product_category": "/products/category/{category}",
+    "users": "/users",
+    "user_item": "/users/{id}",
+    "auth_login": "/auth/login"
+  },
+  "auth": {
+    "valid": {
+      "username": "mor_2314",
+      "password": "83r5^_"
+    },
+    "invalid": {
+      "username": "wrong-user",
+      "password": "wrong-pass"
+    }
+  },
+  "statuses": {
+    "ok": [200],
+    "created": [200, 201],
+    "empty_or_ok": [200, 404],
+    "write_rejected": [400, 401, 403]
+  },
+  "cart": {
+    "seed": {
+      "userId": 1,
+      "date": "2025-01-01T00:00:00.000Z",
+      "products": [
+        {
+          "productId": 1,
+          "quantity": 1
+        }
+      ]
+    },
+    "create_minimal": {
+      "userId": 1,
+      "date": "2025-01-01T00:00:00.000Z",
+      "products": [
+        {
+          "productId": 1,
+          "quantity": 1
+        }
+      ]
+    },
+    "create_multiple": {
+      "userId": 5,
+      "date": "2025-06-01T00:00:00.000Z",
+      "products": [
+        {
+          "productId": 1,
+          "quantity": 2
+        },
+        {
+          "productId": 3,
+          "quantity": 1
+        }
+      ]
+    },
+    "update": {
+      "userId": 3,
+      "date": "2025-12-01T00:00:00.000Z",
+      "products": [
+        {
+          "productId": 7,
+          "quantity": 5
+        }
+      ]
+    },
+    "create_single_product": {
+      "userId": 5,
+      "date": "2025-06-15T00:00:00.000Z",
+      "quantity": 3
+    },
+    "ids": {
+      "existing": [1, 4, 7],
+      "data_driven_product_ids": [1, 5, 9, 12, 18],
+      "missing": 99999
+    }
+  },
+  "products": {
+    "sample_ids": [1, 5, 9],
+    "category": "jewelery",
+    "create": {
+      "title": "Test Product",
+      "price": 19.99,
+      "description": "Synthetic product used for API testing",
+      "image": "https://example.com/product.png",
+      "category": "electronics"
+    },
+    "update": {
+      "title": "Updated Product",
+      "price": 29.99,
+      "description": "Synthetic product used for API testing",
+      "image": "https://example.com/product.png",
+      "category": "electronics"
+    },
+    "ids": {
+      "missing": 99999
+    }
+  },
+  "users": {
+    "sample_ids": [1, 5, 9],
+    "create": {
+      "email": "test.user@example.com",
+      "username": "test_user",
+      "password": "Str0ngP@ssw0rd!",
+      "name": {
+        "firstname": "Test",
+        "lastname": "User"
+      },
+      "address": {
+        "city": "Bengaluru",
+        "street": "MG Road",
+        "number": 101,
+        "zipcode": "560001",
+        "geolocation": {
+          "lat": "12.97",
+          "long": "77.59"
+        }
+      },
+      "phone": "9999999999"
+    },
+    "update": {
+      "email": "updated.user@example.com",
+      "username": "test_user",
+      "password": "Str0ngP@ssw0rd!",
+      "name": {
+        "firstname": "Updated",
+        "lastname": "User"
+      },
+      "address": {
+        "city": "Bengaluru",
+        "street": "MG Road",
+        "number": 101,
+        "zipcode": "560001",
+        "geolocation": {
+          "lat": "12.97",
+          "long": "77.59"
+        }
+      },
+      "phone": "9999999999"
+    },
+    "patch": {
+      "phone": "8888888888"
+    },
+    "ids": {
+      "patch_update": 7,
+      "missing": 99999
+    }
+  }
+}
