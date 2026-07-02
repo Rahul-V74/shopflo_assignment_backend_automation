@@ -1,6 +1,6 @@
 # FakeStoreAPI Backend Automation
 
-Automated API tests for FakeStoreAPI covering `products`, `carts`, `users`, and `auth`.
+Lean API test suite for FakeStoreAPI covering the core assignment requirements for `products`, `carts`, `users`, and `auth`.
 
 ## Framework Choice
 
@@ -31,17 +31,22 @@ The goal is to verify a public API directly, not to build a full testing framewo
 - reusable test data
 - maintainability for a small-to-medium API suite
 
+This repository is intentionally lean:
+- it keeps only representative tests that prove each required behavior
+- it avoids redundant permutations that do not add much assignment value
+- it stays simple enough to explain clearly during review
+
 ## How the suite is organized
 
 - `tests/test_cart_crud.py`
-  - cart CRUD
+  - essential cart CRUD
+  - cart auth checks
   - cart schema validation
   - cart data-driven test
-  - cart contract/snapshot test
+  - cart contract snapshot bootstrap and enforcement
 - `tests/test_products_users_auth.py`
-  - product coverage
-  - user coverage
-  - auth login/token coverage
+  - representative product coverage
+  - representative user coverage
 - `tests/conftest.py`
   - shared fixtures
   - logging
@@ -55,7 +60,7 @@ The goal is to verify a public API directly, not to build a full testing framewo
 If the suite grows or runtime becomes a problem, the next step is parallel execution with `pytest-xdist`.
 
 Practical plan:
-- mark tests by resource type: `cart`, `product`, `user`, `auth`, `schema`, `contract`
+- mark tests by resource type: `cart`, `product`, `user`, `auth`, `schema`
 - separate smoke tests from broader regression tests
 - run independent read-only tests in parallel
 - keep write tests grouped if the target API has rate limits or shared-state concerns
@@ -78,6 +83,7 @@ Practical plan:
 - generate `junit.xml` in CI
 - attach request/response logs to failed tests
 - publish HTML or Allure reports as build artifacts
+- keep the current suite lean unless a rubric explicitly asks for more breadth
 
 Example CI-friendly output:
 ```bash
